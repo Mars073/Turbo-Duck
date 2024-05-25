@@ -1,4 +1,5 @@
 # Turbo Duck Project
+![Previewx](./docs/preview.webp)
 
 ## Overview
 Turbo Duck is a maybe duck, interactive project featuring a rubber duck with RGB LED eyes, a button, and a speaker. When the button is pressed, the duck's eyes light up in a rainbow pattern and a sound is played through the speaker. This project uses an ESP32 microcontroller and is developed using the PlatformIO environment.
