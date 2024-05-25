@@ -102,7 +102,8 @@ void loop()
     musicPlayed = false;
     DacAudio.Play(&Sound);
   }
-  if (musicPlayed == false) {
+  if (musicPlayed == false)
+  {
     eyes.rainbow(((millis() / 6) % 1280) * 256);
     eyes.show();
   }
