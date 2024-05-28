@@ -86,25 +86,26 @@ void loop()
   {
     DacAudio.FillBuffer();
 
-    if (!Sound.Playing)
+    if (Sound.Playing)
+    {
+      eyes.rainbow((millis() / 6 % 1280) * 256);
+    }
+    else
     {
       musicPlayed = true;
       eyes.clear();
-      eyes.show();
     }
+
+    eyes.show();
   }
   else
   {
     delay(100);
   }
+
   if (digitalRead(PIN_BUTTON) == LOW)
   {
     musicPlayed = false;
     DacAudio.Play(&Sound);
-  }
-  if (musicPlayed == false)
-  {
-    eyes.rainbow(((millis() / 6) % 1280) * 256);
-    eyes.show();
   }
 }
