@@ -1,5 +1,7 @@
 # Turbo Duck Project
-![Previewx](./docs/preview.webp)
+![Preview](./docs/preview.webp)
+
+[//]: # (This project was created as a playful gesture to bring a bit of humor into the workplace. I have a tradition of giving rubber ducks to the developers I work with, as they have a special place in the IT world as a debugging aid. This connected duck takes the joke to the next level. Enjoy the Turbo Duck and happy debugging!)
 
 ## Overview
 Turbo Duck is a maybe duck, interactive project featuring a rubber duck with RGB LED eyes, a button, and a speaker. When the button is pressed, the duck's eyes light up in a rainbow pattern and a sound is played through the speaker. This project uses an ESP32 microcontroller and is developed using the PlatformIO environment.
@@ -72,21 +74,20 @@ void setup() {
 void loop() {
   if (!musicPlayed) {
     DacAudio.FillBuffer();
-    if (!Sound.Playing) {
+    if (Sound.Playing) {
+      eyes.rainbow((millis() / 6 % 1280) * 256);
+    } else {
       musicPlayed = true;
       eyes.clear();
-      eyes.show();
     }
+    eyes.show();
   } else {
     delay(100);
   }
+
   if (digitalRead(PIN_BUTTON) == LOW) {
     musicPlayed = false;
     DacAudio.Play(&Sound);
-  }
-  if (musicPlayed == false) {
-    eyes.rainbow(((millis() / 6) % 1280) * 256);
-    eyes.show();
   }
 }
 ```
